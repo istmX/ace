@@ -1,6 +1,7 @@
 import Navbar from '@/components/ui/navbar'
 import { Hero } from '@/components/hero'
 import { InterviewDemoCard } from '@/components/InterviewDemoCard'
+import { FeatureShowcase } from '@/components/FeatureShowcase'
 
 const Page = () => {
   return (
@@ -17,13 +18,14 @@ const Page = () => {
           </p>
         </div>
         <InterviewDemoCard
-          question="How would you evaluate an LLM feature before launch and monitor its quality in production?"
+          question="How would you evaluate a new feature?"
           questionIndex={5}
           totalQuestions={5}
           isRecording
           elapsed={58}
         />
       </section>
+      <FeatureShowcase />
     </main>
   )
 }

@@ -39,12 +39,12 @@ export function AuthPage({ mode }: AuthPageProps) {
   }
 
   return (
-    <main className="grid min-h-screen bg-neutral-300 font-mono text-neutral-900 lg:grid-cols-2">
-      <section className="flex min-h-[310px] flex-col px-7 py-7 sm:px-10 sm:py-9 lg:min-h-screen lg:px-14 lg:py-12">
+    <main className="grid bg-neutral-300 font-mono text-neutral-900 lg:min-h-screen lg:grid-cols-2">
+      <section className="flex flex-col px-6 py-4 sm:px-10 sm:py-5 lg:min-h-screen lg:px-14 lg:py-12">
         <Link href="/" aria-label="Ace home" className="w-fit rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]">
           <Logo />
         </Link>
-        <div className="my-auto max-w-xl py-12 lg:py-20">
+        <div className="hidden max-w-xl py-12 lg:my-auto lg:block lg:py-20">
           <h1 className="max-w-lg font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             {isLogin ? 'Welcome back to Ace.' : 'Get ready to ace your next interview.'}
           </h1>
@@ -59,7 +59,7 @@ export function AuthPage({ mode }: AuthPageProps) {
         </p>
       </section>
 
-      <section className="flex items-center justify-center border-t border-neutral-400 px-6 py-14 sm:px-10 lg:min-h-screen lg:border-l lg:border-t-0 lg:px-14">
+      <section className="flex items-center justify-center px-5 py-8 sm:px-10 sm:py-10 lg:min-h-screen lg:border-l lg:border-neutral-400 lg:px-14 lg:py-14">
         <div className="w-full max-w-[420px]">
           <div className="mb-8">
             <h2 className="font-display text-3xl font-medium tracking-tight">
