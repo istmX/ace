@@ -167,6 +167,7 @@ function FeaturePreview({ feature, reducedMotion }: { feature: Feature; reducedM
 
 export function FeatureShowcase() {
   const [activeId, setActiveId] = useState<FeatureId>(features[0].id)
+  const [hasSelectedFeature, setHasSelectedFeature] = useState(false)
   const reducedMotion = useReducedMotion() ?? false
   const activeFeature = features.find((feature) => feature.id === activeId) ?? features[0]
 
@@ -216,17 +217,20 @@ export function FeatureShowcase() {
                 key={feature.id}
                 type="button"
                 aria-pressed={selected}
-                onClick={() => setActiveId(feature.id)}
+                onClick={() => {
+                  setActiveId(feature.id)
+                  setHasSelectedFeature(true)
+                }}
                 whileTap={reducedMotion ? undefined : { scale: 0.985 }}
-                className={`relative min-h-20 rounded-xl border-t px-3 py-3 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[#407cf9] sm:rounded-none sm:px-4 sm:py-4 ${selected ? 'border-[#407cf9] bg-white/50 text-neutral-900' : 'border-neutral-400 text-neutral-600 hover:bg-white/30'}`}
+                className={`relative flex min-h-20 w-full flex-col items-start justify-start border-t px-3 pb-3 pt-2 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[#407cf9] sm:px-4 sm:pt-2.5 ${selected ? 'border-[#407cf9] text-neutral-900' : 'border-neutral-400 text-neutral-600 hover:text-neutral-900'}`}
               >
                 {selected && <motion.span layoutId="feature-active-pin" className="absolute -top-[2px] left-0 right-0 h-[3px] rounded-full bg-[#407cf9]" transition={reducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 30 }} />}
-                <span className="flex items-start gap-2">
+                <span className="flex w-full items-start gap-2">
                   {feature.id === 'interviews' ? <IconBriefcase className="mt-0.5 h-4 w-4 shrink-0" /> : feature.id === 'feedback' ? <IconSparkles className="mt-0.5 h-4 w-4 shrink-0" /> : feature.id === 'progress' ? <IconTrendingUp className="mt-0.5 h-4 w-4 shrink-0" /> : <IconListCheck className="mt-0.5 h-4 w-4 shrink-0" />}
                   <span className="font-display text-sm font-medium leading-snug sm:text-base">{feature.title}</span>
                 </span>
                 <AnimatePresence initial={false}>
-                  {selected && (
+                  {selected && hasSelectedFeature && (
                     <motion.span
                       initial={reducedMotion ? false : { opacity: 0, height: 0, y: 4 }}
                       animate={{ opacity: 1, height: 'auto', y: 0 }}
