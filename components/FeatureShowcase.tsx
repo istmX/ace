@@ -10,6 +10,7 @@ import {
   IconSparkles,
   IconTrendingUp,
 } from '@tabler/icons-react'
+import { InlineIcon } from '@/components/ui/inline-icon'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 
 const features = [
@@ -175,8 +176,11 @@ export function FeatureShowcase() {
     <section id="features" className="bg-neutral-300 px-4 py-20 sm:px-8 sm:py-28">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-5 max-w-3xl sm:mb-6">
-          <p className="mb-3 font-mono text-sm font-medium text-[#2563EB]">A smarter way to prepare</p>
-          <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.035em] text-neutral-900 sm:text-4xl lg:text-5xl">Practice that takes you from prepared to ready.</h2>
+          <p className="mb-3 flex items-center gap-2 font-mono text-sm font-medium text-[#2563EB]">
+            <InlineIcon color="#f59e0b"><IconBriefcase /></InlineIcon>
+            A smarter way to prepare
+          </p>
+          <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.035em] text-neutral-900 sm:text-4xl lg:text-5xl">Practice that takes you from prepared to <span className="text-[#407cf9]">ready.</span></h2>
         </div>
 
         <div className="relative isolate aspect-[1.1/1] overflow-hidden rounded-[28px] bg-neutral-200 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.22)] sm:aspect-[2.4/1] sm:rounded-[32px]">

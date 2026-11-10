@@ -83,6 +83,7 @@ function TopBar({
 
   return (
     <motion.div
+    id='about'
       initial={reducedMotion ? false : { opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={reducedMotion ? { duration: 0 } : { delay: 0.12, duration: 0.3 }}

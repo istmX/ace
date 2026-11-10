@@ -6,7 +6,10 @@ type LogoProps = {
   showName?: boolean;
 } & HTMLAttributes<HTMLSpanElement>;
 
-/** Ace's compact mark: an open A shape finished with a confident check stroke. */
+
+/**
+ * The Ace logo mark: an open A shape finished with a confident check stroke.
+ */
 export function LogoMark({
   className,
   ...props

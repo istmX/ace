@@ -10,11 +10,11 @@ import Logo from '../logo'
 import { Button } from './button'
 
 const NAVBAR_ITEMS = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Products', href: '/products' },
-  { label: 'Services', href: '/services' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Product', href: '#product' },
+  { label: 'Services', href: '#services' },
+  { label: 'Pricing', href: '#pricing' },
 ]
 
 const MotionLink = motion.create(Link)
