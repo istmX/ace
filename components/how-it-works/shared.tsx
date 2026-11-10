@@ -53,13 +53,13 @@ export function useTicker(active: boolean, ms: number) {
 export function LogoTile({ size }: { size: number }) {
   return (
     <LogoMark
-      className="block shrink-0 text-[#2563EB]"
+      className="block shrink-0 text-brand-logo"
       style={{ width: size, height: size }}
     />
   )
 }
 
-export function Wave({ count = 10, barClass = 'bg-white/90' }: { count?: number; barClass?: string }) {
+export function Wave({ count = 10, barClass = 'bg-surface/90' }: { count?: number; barClass?: string }) {
   return (
     <span aria-hidden="true" className="flex h-6 items-center gap-[3px]">
       {Array.from({ length: count }).map((_, i) => (
@@ -115,15 +115,15 @@ export function BentoCard({ title, description, icon, className = '', height = h
       onFocus={() => onHover?.(true)}
       onBlur={() => onHover?.(false)}
       style={{ touchAction: 'manipulation' }}
-      className={`flex min-w-0 flex-col rounded-[28px] bg-neutral-100 p-3 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#407cf9] sm:p-5 ${className}`}
+      className={`flex min-w-0 flex-col rounded-[28px] bg-surface-soft p-3 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:p-5 ${className}`}
     >
       <div className={`relative isolate overflow-hidden rounded-[20px] ${height}`}>{children}</div>
       <div className="flex items-start gap-3 px-1 pb-1 pt-5">
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-[#2563EB] shadow-sm">
+        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-surface text-brand-logo shadow-sm">
           {icon}
         </span>
         <div className="min-w-0">
-          <h3 className="font-display text-lg font-medium leading-snug tracking-[-0.02em] text-neutral-900 sm:text-xl">
+          <h3 className="font-display text-lg font-medium leading-snug tracking-[-0.02em] text-copy sm:text-xl">
             {title}
           </h3>
           <p className="mt-1 max-w-md font-mono text-sm leading-relaxed text-neutral-600">{description}</p>

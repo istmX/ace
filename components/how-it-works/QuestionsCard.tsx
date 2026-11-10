@@ -50,13 +50,13 @@ export function QuestionsCard() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100/70" />
 
       <div className="absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
-        <span className="rounded-full bg-white px-3 py-1.5 font-mono text-xs font-medium text-neutral-800 shadow-sm">
+        <span className="rounded-full bg-surface px-3 py-1.5 font-mono text-xs font-medium text-neutral-800 shadow-sm">
           <Morph>{current.role}</Morph>
         </span>
         <motion.span
           variants={v({ opacity: 0, x: 8 }, { opacity: 1, x: 0 })}
           transition={spring}
-          className="rounded-full bg-[#407cf9] px-3 py-1.5 font-mono text-xs font-medium text-white"
+          className="rounded-full bg-brand px-3 py-1.5 font-mono text-xs font-medium text-white"
         >
           <Morph>{`${current.count} questions`}</Morph>
         </motion.span>
@@ -71,10 +71,10 @@ export function QuestionsCard() {
           }}
           transition={spring}
           style={{ zIndex: 10 - i }}
-          className="absolute inset-x-3 top-0 h-[68px] origin-top overflow-hidden rounded-2xl border border-neutral-200 bg-white px-3.5 py-2.5 shadow-md sm:inset-x-4"
+          className="absolute inset-x-3 top-0 h-[68px] origin-top overflow-hidden rounded-2xl border border-neutral-200 bg-surface px-3.5 py-2.5 shadow-md sm:inset-x-4"
         >
-          <p className="font-mono text-xs text-neutral-500">Question {i + 1}</p>
-          <Swap className="mt-0.5 font-display text-[13px] font-medium leading-snug text-neutral-900">{question}</Swap>
+          <p className="font-mono text-xs text-subtle">Question {i + 1}</p>
+          <Swap className="mt-0.5 font-display text-[13px] font-medium leading-snug text-copy">{question}</Swap>
         </motion.div>
       ))}
     </BentoCard>

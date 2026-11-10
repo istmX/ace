@@ -45,7 +45,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       error,
       icon,
       labelRight,
-      color = '#407cf9',
+      color = 'var(--brand-primary)',
       tone = 'dark',
       type = 'text',
       id,
@@ -77,7 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {(label || labelRight) && (
           <div className="flex items-center justify-between text-sm">
             {label && (
-              <label htmlFor={inputId} className={light ? 'text-neutral-700' : 'text-white/80'}>
+              <label htmlFor={inputId} className={light ? 'text-body' : 'text-white/80'}>
                 {label}
               </label>
             )}
@@ -89,14 +89,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             'flex h-12 items-center gap-3 rounded-2xl border px-4 transition-colors',
             light
-              ? 'border-neutral-400 bg-white/75 focus-within:border-[color:var(--brand)] focus-within:bg-white'
-              : 'border-white/10 bg-white/5 focus-within:border-[color:var(--brand)] focus-within:bg-white/[0.07]',
+              ? 'border-neutral-400 bg-surface/75 focus-within:border-[color:var(--brand)] focus-within:bg-surface'
+              : 'border-white/10 bg-surface/5 focus-within:border-[color:var(--brand)] focus-within:bg-surface/[0.07]',
             error && 'border-red-500/60 focus-within:border-red-500',
             disabled && 'cursor-not-allowed opacity-50',
           )}
         >
           {leading && (
-            <span className={cn(light ? 'text-neutral-500' : 'text-white/40', '[&>svg]:h-5 [&>svg]:w-5')}>{leading}</span>
+            <span className={cn(light ? 'text-subtle' : 'text-white/40', '[&>svg]:h-5 [&>svg]:w-5')}>{leading}</span>
           )}
 
           <input
@@ -110,7 +110,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               cn(
                 'w-full bg-transparent text-base outline-none',
                 light
-                  ? 'text-neutral-900 placeholder:text-neutral-500'
+                  ? 'text-copy placeholder:text-subtle'
                   : 'text-white placeholder:text-white/30',
               ),
               '[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
@@ -127,7 +127,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               aria-label={show ? 'Hide password' : 'Show password'}
               className={cn(
                 'transition-colors',
-                light ? 'text-neutral-500 hover:text-neutral-900' : 'text-white/40 hover:text-white',
+                light ? 'text-subtle hover:text-copy' : 'text-white/40 hover:text-white',
               )}
             >
               {show ? <IconEyeOff className="h-5 w-5" /> : <IconEye className="h-5 w-5" />}

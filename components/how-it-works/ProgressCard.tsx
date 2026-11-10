@@ -48,11 +48,11 @@ export function ProgressCard() {
       description="Notice the topics getting stronger and choose what to practice next."
       icon={<IconTrendingUp className="h-4 w-4" />}
     >
-      <div className="absolute inset-0 flex flex-col bg-white p-4 sm:p-5">
+      <div className="absolute inset-0 flex flex-col bg-surface p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-mono text-xs text-neutral-500">Interview readiness</p>
-            <p className="mt-1 font-display text-5xl font-semibold leading-none tabular-nums text-neutral-900">
+            <p className="font-mono text-xs text-subtle">Interview readiness</p>
+            <p className="mt-1 font-display text-5xl font-semibold leading-none tabular-nums text-copy">
               <Morph>{hovered ? '78%' : '64%'}</Morph>
             </p>
           </div>
@@ -81,10 +81,10 @@ export function ProgressCard() {
             variants={v({ opacity: 0 }, { opacity: 1 })}
             transition={{ duration: 0.4, delay: 0.5 }}
             aria-hidden="true"
-            className="absolute inset-x-0 border-t border-dashed border-[#407cf9]/50"
+            className="absolute inset-x-0 border-t border-dashed border-brand/50"
             style={{ top: '8%' }}
           >
-            <span className="absolute -top-5 left-0 font-mono text-[11px] text-[#2563EB]">Goal 85%</span>
+            <span className="absolute -top-5 left-0 font-mono text-[11px] text-brand-logo">Goal 85%</span>
           </motion.span>
 
           <motion.div
@@ -95,12 +95,12 @@ export function ProgressCard() {
             <svg viewBox="0 0 300 110" preserveAspectRatio="none" className="h-full w-full" aria-hidden="true">
               <defs>
                 <linearGradient id="progressFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#407cf9" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#407cf9" stopOpacity="0" />
+                  <stop offset="0%" stopColor="var(--brand-primary)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="var(--brand-primary)" stopOpacity="0" />
                 </linearGradient>
                 <linearGradient id="progressStroke" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#67D6F5" />
-                  <stop offset="100%" stopColor="#2563EB" />
+                  <stop offset="0%" stopColor="var(--brand-highlight)" />
+                  <stop offset="100%" stopColor="var(--brand-logo)" />
                 </linearGradient>
               </defs>
               <path d={progressArea} fill="url(#progressFill)" />
@@ -127,7 +127,7 @@ export function ProgressCard() {
               >
                 <motion.span
                   variants={v({ scale: 0, opacity: 0 }, { scale: 1, opacity: 1, transition: { ...spring, delay: 0.1 + i * 0.12 } })}
-                  className={`block rounded-full border-2 border-[#407cf9] bg-white ${last ? 'h-4 w-4 bg-[#407cf9] ring-4 ring-[#407cf9]/20' : 'h-2.5 w-2.5'}`}
+                  className={`block rounded-full border-2 border-brand bg-surface ${last ? 'h-4 w-4 bg-brand ring-4 ring-focus/20' : 'h-2.5 w-2.5'}`}
                 />
               </span>
             )
@@ -156,10 +156,10 @@ export function ProgressCard() {
             {topicScores.map(([topic, score]) => (
               <span
                 key={topic}
-                className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-2.5 py-1 font-mono text-xs text-neutral-700"
+                className="inline-flex items-center gap-1.5 rounded-full bg-surface-soft px-2.5 py-1 font-mono text-xs text-body"
               >
                 {topic}
-                <b className="font-medium tabular-nums text-neutral-900">{score}</b>
+                <b className="font-medium tabular-nums text-copy">{score}</b>
               </span>
             ))}
           </div>

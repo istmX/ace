@@ -17,15 +17,15 @@ const variants = {
   primary:
     'text-white border-[color:color-mix(in_oklab,var(--brand)_78%,black)] ' +
     'bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--brand)_86%,white),var(--brand))] ' +
-    'shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.24),inset_0_3px_0_rgba(255,255,255,0.1)] ' +
+    'shadow-[inset_0_0_0_1.5px_var(--effect-white-24),inset_0_3px_0_var(--effect-white-10)] ' +
     'hover:brightness-105',
 
   
   secondary:
-    'text-neutral-950 border-[#d9d9da] ' +
-    'bg-[linear-gradient(to_bottom,#ffffff,#fafafa)] ' +
-    'shadow-[inset_0_0_0_1px_rgba(255,255,255,1)] ' +
-    'hover:bg-white hover:border-[#cfcfd1]',
+    'text-neutral-950 border-[var(--button-border)] ' +
+    'bg-[linear-gradient(to_bottom,var(--button-surface-top),var(--button-surface-bottom))] ' +
+    'shadow-[inset_0_0_0_1px_var(--effect-white-full)] ' +
+    'hover:bg-surface hover:border-[var(--button-border-hover)]',
 
   // Brand-coloured border and text, transparent face
   outline:
@@ -70,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       style,
       children,
-      color = '#407cf9',
+      color = 'var(--brand-primary)',
       loading = false,
       feedback = null,
       feedbackText,
@@ -103,9 +103,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ...style,
             ...(feedback === 'error'
               ? {
-                  background: 'linear-gradient(to bottom, #fff1f2, #ffe4e6)',
-                  borderColor: '#e11d48',
-                  color: '#9f1239',
+                  background: 'linear-gradient(to bottom, var(--status-error-soft), var(--status-error-soft-strong))',
+                  borderColor: 'var(--status-error-deep)',
+                  color: 'var(--status-error-strong)',
                 }
               : {}),
           } as React.CSSProperties

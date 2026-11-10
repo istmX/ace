@@ -14,10 +14,10 @@ type AuthPageProps = {
 function GoogleMark() {
   return (
     <svg aria-hidden="true" viewBox="0 0 48 48" className="h-4 w-4">
-      <path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11.1c-.5 2.6-2 4.9-4.3 6.4l7 5.4c4.1-3.8 5.8-9.4 5.8-15.5Z" />
-      <path fill="#34A853" d="M24 44c5.6 0 10.3-1.8 13.8-4.9l-7-5.4c-1.9 1.3-4.3 2.1-6.8 2.1-5.2 0-9.6-3.5-11.2-8.3l-7.2 5.5C9 39.6 16 44 24 44Z" />
-      <path fill="#FBBC05" d="M12.8 27.5a12.5 12.5 0 0 1 0-7.9L5.6 14c-3.1 6.2-3.1 13.6 0 19.8Z" />
-      <path fill="#EA4335" d="M24 9.4c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.5 2.9 29.7 1 24 1 16 1 9 5.4 5.6 14l7.2 5.6C14.4 12.8 18.8 9.4 24 9.4Z" />
+      <path fill="var(--google-blue)" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11.1c-.5 2.6-2 4.9-4.3 6.4l7 5.4c4.1-3.8 5.8-9.4 5.8-15.5Z" />
+      <path fill="var(--google-green)" d="M24 44c5.6 0 10.3-1.8 13.8-4.9l-7-5.4c-1.9 1.3-4.3 2.1-6.8 2.1-5.2 0-9.6-3.5-11.2-8.3l-7.2 5.5C9 39.6 16 44 24 44Z" />
+      <path fill="var(--google-yellow)" d="M12.8 27.5a12.5 12.5 0 0 1 0-7.9L5.6 14c-3.1 6.2-3.1 13.6 0 19.8Z" />
+      <path fill="var(--google-red)" d="M24 9.4c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.5 2.9 29.7 1 24 1 16 1 9 5.4 5.6 14l7.2 5.6C14.4 12.8 18.8 9.4 24 9.4Z" />
     </svg>
   )
 }
@@ -39,16 +39,16 @@ export function AuthPage({ mode }: AuthPageProps) {
   }
 
   return (
-    <main className="grid bg-neutral-300 font-mono text-neutral-900 lg:min-h-screen lg:grid-cols-2">
+    <main className="mx-auto grid w-full max-w-7xl bg-page font-mono text-copy lg:min-h-screen lg:grid-cols-2">
       <section className="flex flex-col px-6 py-4 sm:px-10 sm:py-5 lg:min-h-screen lg:px-14 lg:py-12">
-        <Link href="/" aria-label="Ace home" className="w-fit rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]">
+        <Link href="/" aria-label="Ace home" className="w-fit rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-logo)]">
           <Logo />
         </Link>
         <div className="hidden max-w-xl py-12 lg:my-auto lg:block lg:py-20">
           <h1 className="max-w-lg font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             {isLogin ? 'Welcome back to Ace.' : 'Get ready to ace your next interview.'}
           </h1>
-          <p className="mt-5 max-w-md text-base leading-7 text-neutral-700 sm:text-lg">
+          <p className="mt-5 max-w-md text-base leading-7 text-body sm:text-lg">
             {isLogin
               ? 'Pick up your interview preparation where you left off.'
               : 'Build confidence, practice your answers, and take the next step in your career.'}
@@ -65,7 +65,7 @@ export function AuthPage({ mode }: AuthPageProps) {
             <h2 className="font-display text-3xl font-medium tracking-tight">
               {isLogin ? 'Sign in' : 'Create your account'}
             </h2>
-            <p className="mt-2 text-sm text-neutral-700">
+            <p className="mt-2 text-sm text-body">
               {isLogin ? 'Enter your details to continue.' : 'Start preparing for your next interview.'}
             </p>
           </div>
@@ -97,18 +97,18 @@ export function AuthPage({ mode }: AuthPageProps) {
               labelRight={isLogin ? (
                 <Link
                   href="/forgot-password"
-                  className="rounded-sm text-xs text-neutral-700 underline-offset-4 hover:text-neutral-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#407cf9]"
+                  className="rounded-sm text-xs text-body underline-offset-4 hover:text-neutral-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
                 >
                   Forgot password?
                 </Link>
               ) : undefined}
             />
-            <Button type="submit" variant="primary" size="md" width="full" color="#407cf9" className="mt-1 font-mono" loading={formStatus === 'loading'} feedback={formStatus === 'success' ? 'success' : null} feedbackText="Done">
+            <Button type="submit" variant="primary" size="md" width="full" color="var(--brand-primary)" className="mt-1 font-mono" loading={formStatus === 'loading'} feedback={formStatus === 'success' ? 'success' : null} feedbackText="Done">
               {isLogin ? 'Sign in' : 'Create account'}
             </Button>
           </form>
 
-          <p className="mt-7 text-center text-sm text-neutral-700">
+          <p className="mt-7 text-center text-sm text-body">
             {isLogin ? 'New to Ace? ' : 'Already have an account? '}
             <Link href={isLogin ? '/signup' : '/login'} className="font-medium text-neutral-950 underline-offset-4 hover:underline">
               {isLogin ? 'Create an account' : 'Sign in'}

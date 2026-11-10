@@ -52,17 +52,17 @@ export function InterviewCard() {
         <motion.div
           variants={v({ y: 24, opacity: 0, scale: 0.97 }, { y: 0, opacity: 1, scale: 1 })}
           transition={spring}
-          className="absolute inset-x-3 bottom-[76px] rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-xl backdrop-blur-xl sm:inset-x-4 sm:bottom-[84px]"
+          className="absolute inset-x-3 bottom-[76px] rounded-2xl border border-white/60 bg-surface/90 px-4 py-3 shadow-xl backdrop-blur-xl sm:inset-x-4 sm:bottom-[84px]"
         >
-          <p className="font-mono text-xs font-medium text-neutral-500">Ace asks</p>
-          <Swap className="mt-0.5 min-h-[40px] font-display text-sm font-medium leading-snug text-neutral-900 sm:min-h-[44px] sm:text-base">
+          <p className="font-mono text-xs font-medium text-subtle">Ace asks</p>
+          <Swap className="mt-0.5 min-h-[40px] font-display text-sm font-medium leading-snug text-copy sm:min-h-[44px] sm:text-base">
             {interviewQuestions[qi]}
           </Swap>
         </motion.div>
 
         
         <div className="absolute bottom-3 left-3 flex items-center gap-2 sm:bottom-4 sm:left-4">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface/20 text-white backdrop-blur-md">
             <IconMicrophone className="h-5 w-5" />
           </span>
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red-500 text-white">
@@ -82,7 +82,7 @@ export function InterviewCard() {
         <motion.div
           variants={v({ y: 0, scale: 1, rotate: 0 }, { y: -4, scale: 1.08, rotate: -4 })}
           transition={spring}
-          className="absolute bottom-3 right-3 grid h-[60px] w-[60px] place-items-center rounded-2xl bg-white shadow-lg sm:bottom-4 sm:right-4"
+          className="absolute bottom-3 right-3 grid h-[60px] w-[60px] place-items-center rounded-2xl bg-surface shadow-lg sm:bottom-4 sm:right-4"
         >
           <LogoTile size={36} />
         </motion.div>

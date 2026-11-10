@@ -11,17 +11,17 @@ import { FollowUpCard } from './FollowUpCard'
 export function HowItWorks() {
   return (
     <MotionConfig reducedMotion="user">
-      <section id="how-it-works" className="bg-neutral-300 px-4 py-20 sm:px-8 sm:py-28">
+      <section id="how-it-works" className="bg-page px-4 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto w-full max-w-6xl">
           <div className="mb-10 max-w-3xl sm:mb-12">
-            <p className="mb-3 flex items-center gap-2 font-mono text-sm font-medium text-[#2563EB]">
-              <InlineIcon color="#f43f5e"><IconListDetails /></InlineIcon>
+            <p className="mb-3 flex items-center gap-2 font-mono text-sm font-medium text-brand-logo">
+              <InlineIcon color="var(--accent-rose)"><IconListDetails /></InlineIcon>
               Built for better interviews
             </p>
-            <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.035em] text-neutral-900 sm:text-4xl lg:text-5xl">
-              A little practice changes the <span className="text-[#407cf9]">whole interview.</span>
+            <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.035em] text-copy sm:text-4xl lg:text-5xl">
+              A little practice changes the <span className="text-brand">whole interview.</span>
             </h2>
-            <p className="mt-4 max-w-2xl font-mono text-base leading-7 text-neutral-700">
+            <p className="mt-4 max-w-2xl font-mono text-base leading-7 text-body">
               Explore how Ace helps you practice, improve your answers, and prepare for the role you want.
             </p>
           </div>

@@ -15,7 +15,6 @@ import {
 } from '@tabler/icons-react'
 import {
   AnimatePresence,
-  animate,
   motion,
   useInView,
   useReducedMotion,
@@ -24,10 +23,11 @@ import {
   type Variants,
 } from 'motion/react'
 import { LogoMark } from '@/components/logo'
+import { TextMorph } from 'torph/react'
 
 const glass =
-  'border border-white/20 bg-white/10 backdrop-blur-xl backdrop-saturate-150 ' +
-  'shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_32px_rgba(0,0,0,0.25)]'
+  'border border-white/20 bg-surface/10 backdrop-blur-xl backdrop-saturate-150 ' +
+  'shadow-[inset_0_1px_0_var(--effect-white-25),0_8px_32px_var(--effect-black-25)]'
 
 const visualizerBars = Array.from({ length: 28 }, (_, index) => {
   const base = 0.38 + ((Math.sin(index * 1.71) + 1) / 2) * 0.55
@@ -87,12 +87,12 @@ function TopBar({
       initial={reducedMotion ? false : { opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={reducedMotion ? { duration: 0 } : { delay: 0.12, duration: 0.3 }}
-      className={`absolute left-3 right-3 top-3 z-20 flex items-center justify-between gap-2 rounded-full px-3 py-2 sm:left-5 sm:right-5 sm:top-5 sm:px-4 ${isPaused ? 'border border-black/10 bg-white/85 text-neutral-900 shadow-[0_8px_28px_rgba(0,0,0,0.12)] backdrop-blur-xl' : glass}`}
+      className={`absolute left-3 right-3 top-3 z-20 flex items-center justify-between gap-2 rounded-full px-3 py-2 sm:left-5 sm:right-5 sm:top-5 sm:px-4 ${isPaused ? 'border border-black/10 bg-surface/85 text-copy shadow-[0_8px_28px_var(--effect-black-12)] backdrop-blur-xl' : glass}`}
     >
       <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-        <LogoMark className="h-8 w-8 shrink-0 text-[#2563EB] sm:h-9 sm:w-9" />
+        <LogoMark className="h-8 w-8 shrink-0 text-brand-logo sm:h-9 sm:w-9" />
         <div className="min-w-0">
-          <p className={`truncate font-mono text-xs font-semibold sm:text-sm ${isPaused ? 'text-neutral-900' : 'text-white'}`}>Ace Interviewer</p>
+          <p className={`truncate font-mono text-xs font-semibold sm:text-sm ${isPaused ? 'text-copy' : 'text-white'}`}>Ace Interviewer</p>
           <p className={`truncate font-mono text-[10px] sm:text-xs ${isPaused ? 'text-neutral-600' : 'text-white/75'}`}>Senior AI Engineer</p>
         </div>
       </div>
@@ -109,7 +109,7 @@ function TopBar({
             return (
               <motion.span
                 key={segment}
-                className={`h-[3px] w-2.5 rounded-full sm:w-3 ${isPaused ? (completed ? 'bg-neutral-500' : active ? 'bg-[#407cf9]' : 'bg-neutral-300') : (completed ? 'bg-white' : active ? 'bg-[#8bb8ff]' : 'bg-white/30')}`}
+                className={`h-[3px] w-2.5 rounded-full sm:w-3 ${isPaused ? (completed ? 'bg-neutral-500' : active ? 'bg-brand' : 'bg-page') : (completed ? 'bg-surface' : active ? 'bg-[var(--brand-tint)]' : 'bg-surface/30')}`}
                 animate={active && !reducedMotion ? { opacity: [0.55, 1, 0.55] } : { opacity: 1 }}
                 transition={active && !reducedMotion ? { duration: 1.6, repeat: Infinity, ease: 'easeInOut' } : undefined}
               />
@@ -123,7 +123,7 @@ function TopBar({
           onClick={onTogglePause}
           whileHover={reducedMotion ? undefined : { scale: 1.06 }}
           whileTap={reducedMotion ? undefined : { scale: 0.94 }}
-          className={`ml-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[#407cf9] sm:ml-2 ${isPaused ? 'border-[#407cf9] bg-[#407cf9] text-white hover:bg-blue-600' : 'border-white/20 bg-white/10 text-white hover:bg-white/20'}`}
+          className={`ml-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-focus sm:ml-2 ${isPaused ? 'border-brand bg-brand text-white hover:bg-blue-600' : 'border-white/20 bg-surface/10 text-white hover:bg-surface/20'}`}
         >
           {isPaused ? <IconPlayerPlayFilled className="h-3.5 w-3.5" /> : <IconPlayerPauseFilled className="h-3.5 w-3.5" />}
         </motion.button>
@@ -142,7 +142,7 @@ function RecordingPill({ elapsed, isRecording, isPaused, reducedMotion }: Pick<I
       transition={reducedMotion ? { duration: 0 } : { delay: 0.2, duration: 0.28 }}
       role="status"
       aria-live="polite"
-      className={`absolute left-3 top-[68px] z-20 inline-flex items-center gap-2 rounded-full px-3 py-2 font-mono text-xs sm:left-5 sm:top-[78px] sm:gap-2.5 sm:px-3.5 ${isPaused ? 'border border-black/10 bg-white/85 text-neutral-900 shadow-[0_8px_28px_rgba(0,0,0,0.12)] backdrop-blur-xl' : `text-white ${glass}`}`}
+      className={`absolute left-3 top-[68px] z-20 inline-flex items-center gap-2 rounded-full px-3 py-2 font-mono text-xs sm:left-5 sm:top-[78px] sm:gap-2.5 sm:px-3.5 ${isPaused ? 'border border-black/10 bg-surface/85 text-copy shadow-[0_8px_28px_var(--effect-black-12)] backdrop-blur-xl' : `text-white ${glass}`}`}
     >
       <span className="relative flex h-2.5 w-2.5 shrink-0">
         {!reducedMotion && !isPaused && (
@@ -152,11 +152,12 @@ function RecordingPill({ elapsed, isRecording, isPaused, reducedMotion }: Pick<I
             transition={{ duration: 1.35, repeat: Infinity, ease: 'easeOut' }}
           />
         )}
-        <span className={`relative m-auto h-2 w-2 rounded-full shadow-[0_0_10px_rgba(248,113,113,0.5)] ${isPaused ? 'bg-neutral-400' : 'bg-red-400'}`} />
+        <span className={`relative m-auto h-2 w-2 rounded-full shadow-[0_0_10px_var(--effect-error-glow)] ${isPaused ? 'bg-neutral-400' : 'bg-red-400'}`} />
       </span>
         <span className="font-medium">{isPaused ? 'Paused' : 'Recording'}</span>
-      <span className={`tabular-nums ${isPaused ? 'text-neutral-700' : 'text-white/90'}`}>{formatTime(elapsed)}</span>
-      <span className={`hidden border-l pl-2.5 sm:inline ${isPaused ? 'border-neutral-300 text-neutral-600' : 'border-white/20 text-white/65'}`}>min. 1:00 suggested</span>
+      <TextMorph as="span" duration={360} ease="cubic-bezier(0.19, 1, 0.22, 1)" numbers className={`tabular-nums ${isPaused ? 'text-body' : 'text-white/90'}`}>
+        {formatTime(elapsed)}
+      </TextMorph>
     </motion.div>
   )
 }
@@ -182,13 +183,13 @@ function QuestionCard({
       transition={{ layout: reducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 260, damping: 28 } }}
       aria-live="polite"
       aria-atomic="true"
-      className={`absolute bottom-[76px] left-3 right-3 z-20 rounded-2xl p-3.5 sm:bottom-[106px] sm:left-5 sm:right-auto sm:w-[58%] sm:max-w-[620px] sm:p-4 ${isPaused ? 'border border-black/10 bg-white/85 text-neutral-900 shadow-[0_8px_28px_rgba(0,0,0,0.12)] backdrop-blur-xl' : `text-white ${glass}`}`}
+      className={`absolute bottom-[76px] left-3 right-3 z-20 rounded-2xl p-3.5 sm:bottom-[106px] sm:left-5 sm:right-auto sm:w-[58%] sm:max-w-[620px] sm:p-4 ${isPaused ? 'border border-black/10 bg-surface/85 text-copy shadow-[0_8px_28px_var(--effect-black-12)] backdrop-blur-xl' : `text-white ${glass}`}`}
     >
       <div className="mb-1.5 flex items-center gap-2">
         <motion.span
           animate={isAceSpeaking ? { scale: [1, 1.12, 1] } : { scale: 1 }}
           transition={isAceSpeaking && !reducedMotion ? { duration: 0.9, repeat: Infinity, ease: 'easeInOut' } : undefined}
-          className={`flex h-5 w-5 items-center justify-center ${isPaused ? 'text-[#407cf9]' : 'text-white/90'}`}
+          className={`flex h-5 w-5 items-center justify-center ${isPaused ? 'text-brand' : 'text-white/90'}`}
           aria-hidden="true"
         >
           <IconVolume2 className="h-4 w-4" />
@@ -204,7 +205,7 @@ function QuestionCard({
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.03 } } }}
         initial={isAceSpeaking && !reducedMotion ? 'hidden' : false}
         animate="visible"
-        className={`font-display text-base font-medium leading-snug sm:text-xl lg:text-2xl ${isPaused ? 'text-neutral-900' : 'text-white'} ${isCollapsed ? 'line-clamp-1' : 'line-clamp-2'}`}
+        className={`font-display text-base font-medium leading-snug sm:text-xl lg:text-2xl ${isPaused ? 'text-copy' : 'text-white'} ${isCollapsed ? 'line-clamp-1' : 'line-clamp-2'}`}
       >
         {words.map((word, index) => (
           <motion.span key={`${word}-${index}`} variants={wordVariants} className="mr-[0.28em] inline-block">
@@ -222,7 +223,7 @@ function AudioVisualizer({ active, reducedMotion }: { active: boolean; reducedMo
       {visualizerBars.map(({ base, delay, duration }, index) => (
         <motion.span
           key={index}
-          className={`w-[2px] rounded-full bg-gradient-to-t ${active ? 'from-[#407cf9] to-[#a9c8ff]' : 'from-neutral-400 to-neutral-300'}`}
+          className={`w-[2px] rounded-full bg-gradient-to-t ${active ? 'from-brand to-brand-tint-strong' : 'from-neutral-400 to-neutral-300'}`}
           style={{ height: 24, scaleY: active && !reducedMotion ? base : 0.42 }}
           animate={active && !reducedMotion ? { scaleY: [0.25, base, 0.42, 0.9, 0.3] } : { scaleY: 0.42 }}
           transition={active && !reducedMotion ? { duration, delay, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
@@ -258,10 +259,10 @@ function TooltipButton({
       onClick={onClick}
       whileHover={reducedMotion ? undefined : { scale: 1.05 }}
       whileTap={reducedMotion ? undefined : { scale: 0.95 }}
-      className={`group relative flex h-11 w-11 items-center justify-center rounded-full border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[#407cf9] focus-visible:ring-offset-2 ${paused ? 'border-black/10 bg-white/80 text-neutral-900 focus-visible:ring-offset-neutral-200' : 'border-white/20 text-white focus-visible:ring-offset-neutral-900'} ${off ? (paused ? 'bg-red-100 text-red-700 hover:bg-red-200' : 'bg-red-500/25 hover:bg-red-500/40') : (paused ? 'hover:bg-white' : 'bg-white/15 hover:bg-white/25')}`}
+      className={`group relative flex h-11 w-11 items-center justify-center rounded-full border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 ${paused ? 'border-black/10 bg-surface/80 text-copy focus-visible:ring-offset-neutral-200' : 'border-white/20 text-white focus-visible:ring-offset-neutral-900'} ${off ? (paused ? 'bg-red-100 text-red-700 hover:bg-red-200' : 'bg-red-500/25 hover:bg-red-500/40') : (paused ? 'hover:bg-surface' : 'bg-surface/15 hover:bg-surface/25')}`}
     >
       {children}
-      <span role="tooltip" className={`pointer-events-none absolute bottom-[calc(100%+10px)] left-1/2 z-40 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1.5 font-mono text-[11px] opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 ${paused ? 'border border-black/10 bg-white text-neutral-900 shadow-lg' : `text-white ${glass}`}`}>
+      <span role="tooltip" className={`pointer-events-none absolute bottom-[calc(100%+10px)] left-1/2 z-40 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-1.5 font-mono text-[11px] opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 ${paused ? 'border border-black/10 bg-surface text-copy shadow-lg' : `text-white ${glass}`}`}>
         {label}
       </span>
     </motion.button>
@@ -288,7 +289,7 @@ function ControlDock({
   onFinish: () => void
 }) {
   return (
-    <div className={`absolute bottom-3 left-1/2 z-30 flex w-[calc(100%-24px)] -translate-x-1/2 flex-row items-center justify-center gap-1.5 rounded-full p-2 sm:bottom-5 sm:w-auto sm:gap-3 sm:px-3 sm:py-2 ${isPaused ? 'border border-black/10 bg-white/90 shadow-[0_10px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl' : glass}`}>
+    <div className={`absolute bottom-3 left-1/2 z-30 flex w-[calc(100%-24px)] -translate-x-1/2 flex-row items-center justify-center gap-1.5 rounded-full p-2 sm:bottom-5 sm:w-auto sm:gap-3 sm:px-3 sm:py-2 ${isPaused ? 'border border-black/10 bg-surface/90 shadow-[0_10px_32px_var(--effect-black-12)] backdrop-blur-xl' : glass}`}>
       <div className="flex items-center justify-center gap-1.5 sm:gap-2">
         <TooltipButton label={cameraOn ? 'Turn off camera' : 'Turn on camera'} pressed={cameraOn} paused={isPaused} off={!cameraOn} onClick={onCameraToggle} reducedMotion={reducedMotion}>
           {cameraOn ? <IconCamera className="h-[21px] w-[21px]" /> : <IconCameraOff className="h-[21px] w-[21px]" />}
@@ -309,11 +310,11 @@ function ControlDock({
         </div>
       </div>
 
-      <span className={`h-7 w-px ${isPaused ? 'bg-neutral-300' : 'bg-white/20'}`} aria-hidden="true" />
+      <span className={`h-7 w-px ${isPaused ? 'bg-page' : 'bg-surface/20'}`} aria-hidden="true" />
 
       <div className="flex items-center justify-center gap-1.5 sm:gap-3">
         <AudioVisualizer active={isRecording && !isPaused} reducedMotion={reducedMotion} />
-        <span className={`h-7 w-px ${isPaused ? 'bg-neutral-300' : 'bg-white/20'}`} aria-hidden="true" />
+        <span className={`h-7 w-px ${isPaused ? 'bg-page' : 'bg-surface/20'}`} aria-hidden="true" />
         <div className="relative">
           {isRecording && !isPaused && (
             <motion.span
@@ -331,7 +332,7 @@ function ControlDock({
             title="Finish answer"
             whileHover={isRecording && !reducedMotion ? { scale: 1.05 } : undefined}
             whileTap={isRecording && !reducedMotion ? { scale: 0.95 } : undefined}
-            className="relative flex h-12 w-12 items-center justify-center rounded-full border border-red-600/30 bg-red-500 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_5px_18px_rgba(239,68,68,0.35)] outline-none transition-colors hover:bg-red-400 focus-visible:ring-2 focus-visible:ring-[#407cf9] focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-14"
+            className="relative flex h-12 w-12 items-center justify-center rounded-full border border-red-600/30 bg-red-500 text-white shadow-[inset_0_1px_0_var(--effect-white-35),0_5px_18px_var(--effect-error-35)] outline-none transition-colors hover:bg-red-400 focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-200 disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-14"
           >
             <IconPlayerStopFilled className="h-5 w-5" aria-hidden="true" />
           </motion.button>
@@ -370,17 +371,11 @@ function InterviewScoreCard({
   const [displayScore, setDisplayScore] = useState(reducedMotion ? safeScore : 0)
 
   useEffect(() => {
-    if (reducedMotion) {
-      setDisplayScore(safeScore)
-      return
-    }
+    setDisplayScore(reducedMotion ? safeScore : 0)
+    if (reducedMotion) return
 
-    const controls = animate(0, safeScore, {
-      duration: 1.1,
-      ease: 'easeOut',
-      onUpdate: (value) => setDisplayScore(Math.round(value)),
-    })
-    return () => controls.stop()
+    const frame = window.requestAnimationFrame(() => setDisplayScore(safeScore))
+    return () => window.cancelAnimationFrame(frame)
   }, [reducedMotion, safeScore])
 
   return (
@@ -415,7 +410,7 @@ function InterviewScoreCard({
           onClick={onDismiss}
           aria-label="Close interview scorecard"
           title="Close scorecard"
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--score-card-divider)] bg-white/70 text-neutral-700 transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#407cf9]"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--score-card-divider)] bg-surface/70 text-body transition-colors hover:bg-surface-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           <IconX className="h-4 w-4" aria-hidden="true" />
         </button>
@@ -428,7 +423,7 @@ function InterviewScoreCard({
             <defs>
               <linearGradient id={gradientId} x1="0" y1="1" x2="1" y2="0">
                 <stop offset="0%" stopColor="var(--accent)" />
-                <stop offset="100%" stopColor="color-mix(in srgb, var(--accent), white 55%)" />
+                <stop offset="100%" stopColor="color-mix(in srgb, var(--accent), var(--surface-white) 55%)" />
               </linearGradient>
             </defs>
             <motion.circle
@@ -446,9 +441,9 @@ function InterviewScoreCard({
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center leading-none">
-            <motion.span className="font-display text-[30px] font-semibold tabular-nums tracking-tight text-[var(--score-card-primary)] sm:text-[40px]">
+            <TextMorph as="span" duration={1100} ease="cubic-bezier(0.19, 1, 0.22, 1)" numbers className="font-display text-[30px] font-semibold tabular-nums tracking-tight text-[var(--score-card-primary)] sm:text-[40px]">
               {displayScore}
-            </motion.span>
+            </TextMorph>
             <span className="mt-0.5 font-mono text-[9px] tabular-nums text-[var(--score-card-muted)] sm:mt-1 sm:text-[11px]">/100</span>
           </div>
         </div>
@@ -539,6 +534,7 @@ export function InterviewDemoCard({
   const [isPaused, setIsPaused] = useState(false)
   const [showScorecard, setShowScorecard] = useState(false)
   const [scorecardDismissed, setScorecardDismissed] = useState(false)
+  const [elapsedSeconds, setElapsedSeconds] = useState(Math.max(0, Math.floor(elapsed)))
 
   const activeCamera = cameraOn ?? localCameraOn
   const activeMic = micOn ?? localMicOn
@@ -549,6 +545,16 @@ export function InterviewDemoCard({
   const scrollStyle = reducedMotion
     ? { z: 0, y: 0, scale: 1 }
     : { z: lift, y: rise, scale }
+
+  useEffect(() => {
+    setElapsedSeconds(Math.max(0, Math.floor(elapsed)))
+  }, [elapsed])
+
+  useEffect(() => {
+    if (!recording || paused || !shouldLoadVideo) return
+    const interval = window.setInterval(() => setElapsedSeconds((seconds) => seconds + 1), 1000)
+    return () => window.clearInterval(interval)
+  }, [recording, paused, shouldLoadVideo])
 
   useEffect(() => {
     if ((!shouldLoadVideo && !finished) || scorecardDismissed) return
@@ -609,9 +615,9 @@ export function InterviewDemoCard({
       style={{ ...scrollStyle, transformPerspective: 1400, transformOrigin: 'center bottom' }}
       className="relative mx-auto w-full max-w-5xl select-none overflow-hidden"
     >
-      <div className="relative overflow-hidden rounded-[32px] border border-black/10 bg-neutral-300 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.18)]">
-        <div className="relative isolate aspect-square overflow-hidden rounded-[30px] bg-neutral-100 ring-1 ring-inset ring-white/10 sm:aspect-video">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_38%,rgba(255,255,255,0.65),transparent_48%),linear-gradient(145deg,#f5f5f5_0%,#d4d4d4_100%)]" />
+      <div className="relative overflow-hidden rounded-[32px] border border-black/10 bg-page shadow-[0_20px_50px_-12px_var(--effect-black-18)]">
+        <div className="relative isolate aspect-square overflow-hidden rounded-[30px] bg-surface-soft ring-1 ring-inset ring-white/10 sm:aspect-video">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_38%,var(--effect-white-65),transparent_48%),linear-gradient(145deg,var(--surface-soft)_0%,var(--surface-page)_100%)]" />
 
           {shouldLoadVideo && videoSrc && (
             <video
@@ -634,7 +640,7 @@ export function InterviewDemoCard({
           {recording && !paused && !reducedMotion && (
             <motion.div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 z-10 rounded-[30px] border border-[#407cf9]/35"
+              className="pointer-events-none absolute inset-0 z-10 rounded-[30px] border border-brand/35"
               animate={{ opacity: [0.2, 0.55, 0.2] }}
               transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -653,10 +659,10 @@ export function InterviewDemoCard({
                 className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-br from-neutral-200 via-neutral-200 to-neutral-300 px-4 text-center"
               >
                 <div className="flex max-w-xs flex-col items-center">
-                  <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full border border-white bg-white shadow-[0_10px_35px_rgba(0,0,0,0.12)]">
-                    <LogoMark className="h-12 w-12 text-[#2563EB]" />
+                  <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full border border-white bg-surface shadow-[0_10px_35px_var(--effect-black-12)]">
+                    <LogoMark className="h-12 w-12 text-brand-logo" />
                   </div>
-                  <p className="font-display text-xl font-medium text-neutral-900 sm:text-2xl">
+                  <p className="font-display text-xl font-medium text-copy sm:text-2xl">
                     {paused ? (finished ? 'Interview paused' : 'Preview paused') : 'Camera is off'}
                   </p>
                   <p className="mt-2 font-mono text-sm leading-relaxed text-neutral-600">
@@ -669,7 +675,7 @@ export function InterviewDemoCard({
                       type="button"
                       onClick={togglePlayback}
                       whileTap={reducedMotion ? undefined : { scale: 0.96 }}
-                      className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#407cf9] px-4 py-2.5 font-mono text-sm font-medium text-white shadow-md outline-none transition-colors hover:bg-blue-600 focus-visible:ring-2 focus-visible:ring-[#407cf9] focus-visible:ring-offset-2"
+                      className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2.5 font-mono text-sm font-medium text-white shadow-md outline-none transition-colors hover:bg-blue-600 focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2"
                     >
                       <IconPlayerPlayFilled className="h-3.5 w-3.5" aria-hidden="true" />
                       {finished ? 'Replay preview' : 'Resume preview'}
@@ -681,7 +687,7 @@ export function InterviewDemoCard({
           </AnimatePresence>
 
           <TopBar questionIndex={questionIndex} totalQuestions={totalQuestions} isPaused={paused} onTogglePause={togglePlayback} reducedMotion={reducedMotion} />
-          <RecordingPill elapsed={elapsed} isRecording={recording} isPaused={paused} reducedMotion={reducedMotion} />
+          <RecordingPill elapsed={elapsedSeconds} isRecording={recording} isPaused={paused} reducedMotion={reducedMotion} />
 
           {!finished && (
             <QuestionCard question={question} isCollapsed={collapsed} isAceSpeaking={speaking} isPaused={paused} reducedMotion={reducedMotion} />

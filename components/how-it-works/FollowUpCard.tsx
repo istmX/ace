@@ -29,7 +29,7 @@ export function FollowUpCard() {
       <div className="absolute inset-0 flex flex-col justify-center gap-3 p-4">
         
         <div className="flex items-start justify-end gap-2.5">
-          <div className="min-w-0 rounded-2xl rounded-tr-md bg-[#407cf9] px-3.5 py-2.5 font-mono text-[13px] leading-snug text-white shadow-md">
+          <div className="min-w-0 rounded-2xl rounded-tr-md bg-brand px-3.5 py-2.5 font-mono text-[13px] leading-snug text-white shadow-md">
             I would define success metrics first, then compare against a baseline.
           </div>
           <UserAvatar />
@@ -42,14 +42,14 @@ export function FollowUpCard() {
           className="flex items-start gap-2.5"
         >
           <LogoTile size={28} />
-          <div className="min-w-0 flex-1 rounded-2xl rounded-tl-md bg-white px-3.5 py-3 shadow-lg">
+          <div className="min-w-0 flex-1 rounded-2xl rounded-tl-md bg-surface px-3.5 py-3 shadow-lg">
             <div className="mb-1.5 flex items-center justify-between gap-2">
-              <span className="font-mono text-xs font-medium text-neutral-500">Ace</span>
-              <span className="shrink-0 font-mono text-xs tabular-nums text-neutral-500">
+              <span className="font-mono text-xs font-medium text-subtle">Ace</span>
+              <span className="shrink-0 font-mono text-xs tabular-nums text-subtle">
                 <Morph>{`Follow-up ${index + 1} of 3`}</Morph>
               </span>
             </div>
-            <Swap className="min-h-[40px] font-display text-sm font-medium leading-snug text-neutral-900">
+            <Swap className="min-h-[40px] font-display text-sm font-medium leading-snug text-copy">
               {followUps[index]}
             </Swap>
           </div>
@@ -62,12 +62,12 @@ export function FollowUpCard() {
           className="overflow-hidden"
         >
           <div className="flex items-center gap-2.5">
-            <div className="flex min-w-0 flex-1 items-center gap-3 rounded-full border border-neutral-200 bg-white/90 py-1.5 pl-1.5 pr-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#407cf9] text-white">
+            <div className="flex min-w-0 flex-1 items-center gap-3 rounded-full border border-neutral-200 bg-surface/90 py-1.5 pl-1.5 pr-4">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-white">
                 <IconMicrophone className="h-4 w-4" />
               </span>
-              <Wave count={12} barClass="bg-[#407cf9]" />
-              <span className="ml-auto whitespace-nowrap font-mono text-xs text-neutral-500">Your turn</span>
+              <Wave count={12} barClass="bg-brand" />
+              <span className="ml-auto whitespace-nowrap font-mono text-xs text-subtle">Your turn</span>
             </div>
             <UserAvatar />
           </div>

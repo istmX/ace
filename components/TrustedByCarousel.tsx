@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from 'motion/react'
 import { IconBrandOpenai, IconBuildingSkyscraper } from '@tabler/icons-react'
 import { InlineIcon } from '@/components/ui/inline-icon'
@@ -16,7 +16,6 @@ const companies = [
   { name: 'Anthropic', slug: 'anthropic', href: 'https://www.anthropic.com', artwork: 'anthropic', story: 'Explain the trade-offs.' },
 ]
 
-const duplicatedCompanies = [...companies, ...companies]
 const cardWidth = 248
 const cardGap = 16
 const loopDistance = companies.length * (cardWidth + cardGap)
@@ -44,10 +43,10 @@ function BrandArtwork({ type }: { type: string }) {
   if (type === 'notion') {
     return (
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-[#f5f3ef]">
-        <div className="absolute -right-7 -top-12 rotate-6 rounded-[24px] border border-neutral-300/70 bg-white/80 p-4 shadow-xl">
+        <div className="absolute -right-7 -top-12 rotate-6 rounded-[24px] border border-neutral-300/70 bg-surface/80 p-4 shadow-xl">
           <div className="h-3 w-28 rounded bg-neutral-200" />
-          <div className="mt-3 h-3 w-36 rounded bg-neutral-100" />
-          <div className="mt-2 h-3 w-24 rounded bg-neutral-100" />
+          <div className="mt-3 h-3 w-36 rounded bg-surface-soft" />
+          <div className="mt-2 h-3 w-24 rounded bg-surface-soft" />
           <div className="mt-6 h-20 w-40 rounded-lg bg-[#f0eee9]" />
         </div>
         <div className="absolute -bottom-16 -left-7 h-40 w-40 rounded-full bg-[#e8e4dc]" />
@@ -60,7 +59,7 @@ function BrandArtwork({ type }: { type: string }) {
         <div className="absolute -right-2 -top-14 h-52 w-52 border border-neutral-400/40 [clip-path:polygon(50%_0,100%_100%,0_100%)]" />
         <div className="absolute right-7 top-4 h-40 w-40 border border-neutral-400/50 [clip-path:polygon(50%_0,100%_100%,0_100%)]" />
         <div className="absolute right-[68px] top-[58px] h-24 w-24 bg-gradient-to-br from-white to-neutral-300 [clip-path:polygon(50%_0,100%_100%,0_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49.8%,rgba(0,0,0,0.05)_50%,transparent_50.2%),linear-gradient(0deg,transparent_49.8%,rgba(0,0,0,0.05)_50%,transparent_50.2%)] bg-[size:32px_32px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49.8%,var(--effect-black-05)_50%,transparent_50.2%),linear-gradient(0deg,transparent_49.8%,var(--effect-black-05)_50%,transparent_50.2%)] bg-[size:32px_32px]" />
       </div>
     )
   }
@@ -81,7 +80,7 @@ function BrandArtwork({ type }: { type: string }) {
         <div className="absolute -right-12 -top-16 h-64 w-64 rounded-full bg-gradient-to-br from-[#9e8df4] to-[#d9d2ff]" />
         <div className="absolute -right-3 -top-7 h-48 w-48 rounded-full border border-white/70" />
         <div className="absolute right-7 top-5 h-32 w-32 rounded-full border border-white/70" />
-        <div className="absolute bottom-5 left-5 h-20 w-40 rounded-full bg-white/55 blur-sm" />
+        <div className="absolute bottom-5 left-5 h-20 w-40 rounded-full bg-surface/55 blur-sm" />
       </div>
     )
   }
@@ -90,8 +89,8 @@ function BrandArtwork({ type }: { type: string }) {
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-[#e0f0dd]">
         <div className="absolute -right-8 -top-12 h-52 w-52 rounded-full bg-[#a8d5a1]" />
         <div className="absolute -bottom-16 -left-9 h-48 w-48 rounded-full bg-[#91c98b]" />
-        <div className="absolute right-8 top-9 h-36 w-36 rotate-12 rounded-[28px] border border-white/80 bg-white/30" />
-        <div className="absolute right-16 top-16 h-24 w-24 -rotate-6 rounded-[22px] border border-white/80 bg-white/30" />
+        <div className="absolute right-8 top-9 h-36 w-36 rotate-12 rounded-[28px] border border-white/80 bg-surface/30" />
+        <div className="absolute right-16 top-16 h-24 w-24 -rotate-6 rounded-[22px] border border-white/80 bg-surface/30" />
       </div>
     )
   }
@@ -114,7 +113,7 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
       onHoverEnd={() => setRevealed(false)}
       onFocus={() => setRevealed(true)}
       onBlur={() => setRevealed(false)}
-      className="group relative h-[228px] w-[248px] shrink-0 overflow-hidden rounded-[22px] border border-black/[0.07] bg-neutral-100 text-neutral-900 shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-[box-shadow,border-color] duration-300 hover:border-black/10 hover:shadow-[0_18px_38px_rgba(0,0,0,0.16)] sm:h-[248px]"
+      className="group relative h-[228px] w-[248px] shrink-0 overflow-hidden rounded-[22px] border border-black/[0.07] bg-surface-soft text-copy shadow-[0_8px_24px_var(--effect-black-07)] transition-[box-shadow,border-color] duration-300 hover:border-black/10 hover:shadow-[0_18px_38px_var(--effect-black-16)] sm:h-[248px]"
     >
       <motion.div
         className="absolute inset-0"
@@ -128,7 +127,7 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-overlay"
         style={{
-          backgroundImage: 'radial-gradient(rgba(20, 20, 20, 0.8) 0.55px, transparent 0.75px)',
+          backgroundImage: 'radial-gradient(var(--artwork-dither-ink) 0.55px, transparent 0.75px)',
           backgroundSize: '3px 3px',
         }}
       />
@@ -147,9 +146,9 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
         animate={{ y: revealed ? -13 : 0, scale: revealed ? 0.96 : 1 }}
         transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center gap-3 rounded-full border border-white/60 bg-white/75 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center gap-3 rounded-full border border-white/60 bg-surface/75 px-4 py-3 shadow-[0_4px_18px_var(--effect-black-08)]">
           {company.slug === 'openai' ? (
-            <IconBrandOpenai aria-hidden="true" className="h-8 w-8 shrink-0 text-neutral-900" />
+            <IconBrandOpenai aria-hidden="true" className="h-8 w-8 shrink-0 text-copy" />
           ) : (
             <img
               src={`https://cdn.simpleicons.org/${company.slug}`}
@@ -160,7 +159,7 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
               draggable={false}
             />
           )}
-          <span className="font-display text-[23px] font-medium tracking-[-0.045em] text-neutral-900 sm:text-[25px]">
+          <span className="font-display text-[23px] font-medium tracking-[-0.045em] text-copy sm:text-[25px]">
             {company.name}
           </span>
         </div>
@@ -177,8 +176,8 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
         animate={{
           opacity: revealed ? 1 : 0.86,
           y: revealed ? 0 : 4,
-          color: revealed ? '#ffffff' : '#262626',
-          backgroundColor: revealed ? 'rgba(23,23,23,0.78)' : 'rgba(255,255,255,0.88)',
+          color: revealed ? 'var(--surface-white)' : 'var(--palette-neutral-800)',
+          backgroundColor: revealed ? 'var(--artwork-hover-label)' : 'var(--effect-white-88)',
         }}
         transition={{ duration: 0.28, ease: 'easeOut' }}
       >
@@ -192,8 +191,23 @@ function CompanyCard({ company }: { company: (typeof companies)[number] }) {
 export function TrustedByCarousel() {
   const trackX = useMotionValue(0)
   const [paused, setPaused] = useState(false)
+  const [copyCount, setCopyCount] = useState(3)
+  const viewportRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
   const reducedMotion = useReducedMotion()
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    if (!viewport) return
+
+    const observer = new ResizeObserver(([entry]) => {
+      const requiredCopies = Math.ceil(entry.contentRect.width / loopDistance) + 2
+      setCopyCount((current) => current === requiredCopies ? current : requiredCopies)
+    })
+
+    observer.observe(viewport)
+    return () => observer.disconnect()
+  }, [])
 
   useAnimationFrame((_, delta) => {
     if (paused || isDragging.current || reducedMotion) return
@@ -204,7 +218,7 @@ export function TrustedByCarousel() {
   return (
     <section
       aria-labelledby="trusted-heading"
-      className="overflow-hidden bg-neutral-300 pb-4 pt-8 sm:pb-8 sm:pt-12"
+      className="overflow-hidden bg-page pb-4 pt-8 sm:pb-8 sm:pt-12"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -214,19 +228,19 @@ export function TrustedByCarousel() {
     >
       <div className="mx-auto mb-6 flex w-full max-w-5xl items-end justify-between gap-5 px-4 sm:mb-8 sm:px-8">
         <div>
-          <p className="mb-2 flex items-center gap-2 font-mono text-sm font-medium text-[#2563EB]">
-            <InlineIcon color="#10b981"><IconBuildingSkyscraper /></InlineIcon>
+          <p className="mb-2 flex items-center gap-2 font-mono text-sm font-medium text-brand-logo">
+            <InlineIcon color="var(--status-success)"><IconBuildingSkyscraper /></InlineIcon>
             Aim a little higher
           </p>
-          <h2 id="trusted-heading" className="max-w-2xl font-display text-2xl font-medium leading-tight tracking-[-0.035em] text-neutral-900 sm:text-3xl lg:text-4xl">
-            Practice for the <span className="text-[#407cf9]">teams you admire.</span>
+          <h2 id="trusted-heading" className="max-w-2xl font-display text-2xl font-medium leading-tight tracking-[-0.035em] text-copy sm:text-3xl lg:text-4xl">
+            Practice for the <span className="text-brand">teams you admire.</span>
           </h2>
-          <p className="mt-2 font-mono text-sm text-neutral-700 sm:text-base">Build confidence for interviews at leading companies.</p>
+          <p className="mt-2 font-mono text-sm text-body sm:text-base">Build confidence for interviews at leading companies.</p>
         </div>
         <span aria-hidden="true" className="hidden shrink-0 pb-1 font-mono text-xs text-neutral-600 sm:block">Drag to explore&nbsp; ↔</span>
       </div>
 
-      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
+      <div ref={viewportRef} className="relative w-full max-w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
         <motion.div
           className="flex w-max cursor-grab gap-4 px-4 active:cursor-grabbing sm:px-6 [&_a]:cursor-pointer"
           style={{ x: trackX, touchAction: 'pan-y' }}
@@ -238,12 +252,12 @@ export function TrustedByCarousel() {
           onHoverStart={() => setPaused(true)}
           onHoverEnd={() => setPaused(false)}
         >
-          {duplicatedCompanies.map((company, index) => (
-            <CompanyCard key={`${company.slug}-${index}`} company={company} />
-          ))}
+          {Array.from({ length: copyCount }, (_, copyIndex) =>
+            companies.map((company) => <CompanyCard key={`${copyIndex}-${company.slug}`} company={company} />),
+          )}
         </motion.div>
       </div>
-      <p className="sr-only">Company logos are examples of teams to prepare for and do not indicate endorsement.</p>
+      <p className="sr-only">Explore companies candidates may want to prepare for.</p>
     </section>
   )
 }

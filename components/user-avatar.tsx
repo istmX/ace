@@ -16,8 +16,8 @@ export function UserAvatar({ src, alt = '', size = 28, className = '' }: UserAva
         <img src={src} alt={alt} className="h-full w-full object-cover" />
       ) : (
         <svg viewBox="0 0 32 32" className="h-full w-full" aria-hidden="true">
-          <circle cx="16" cy="12.5" r="5.5" fill="#fff" fillOpacity="0.95" />
-          <path d="M4.5 32c0-6.4 5.1-11 11.5-11s11.5 4.6 11.5 11" fill="#fff" fillOpacity="0.95" />
+          <circle cx="16" cy="12.5" r="5.5" fill="var(--surface-white)" fillOpacity="0.95" />
+          <path d="M4.5 32c0-6.4 5.1-11 11.5-11s11.5 4.6 11.5 11" fill="var(--surface-white)" fillOpacity="0.95" />
         </svg>
       )}
     </span>

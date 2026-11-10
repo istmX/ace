@@ -16,16 +16,16 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <main className="grid bg-neutral-300 font-mono text-neutral-900 lg:min-h-screen lg:grid-cols-2">
+    <main className="mx-auto grid w-full max-w-7xl bg-page font-mono text-copy lg:min-h-screen lg:grid-cols-2">
       <section className="flex flex-col px-6 py-4 sm:px-10 sm:py-5 lg:min-h-screen lg:px-14 lg:py-12">
-        <Link href="/" aria-label="Ace home" className="w-fit rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]">
+        <Link href="/" aria-label="Ace home" className="w-fit rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-logo)]">
           <Logo />
         </Link>
         <div className="hidden max-w-xl py-12 lg:my-auto lg:block lg:py-20">
           <h1 className="max-w-lg font-display text-4xl font-medium leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             A fresh start is one step away.
           </h1>
-          <p className="mt-5 max-w-md text-base leading-7 text-neutral-700 sm:text-lg">
+          <p className="mt-5 max-w-md text-base leading-7 text-body sm:text-lg">
             We’ll help you get back to practicing with confidence.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function ForgotPasswordPage() {
         <div className="w-full max-w-[420px]">
           <div className="mb-8">
             <h2 className="font-display text-3xl font-medium tracking-tight">Forgot your password?</h2>
-            <p className="mt-2 text-sm text-neutral-700">
+            <p className="mt-2 text-sm text-body">
               Enter your email address and we’ll help you reset it.
             </p>
           </div>
@@ -53,12 +53,12 @@ export default function ForgotPasswordPage() {
               className="font-mono"
               required
             />
-            <Button type="submit" variant="primary" size="md" width="full" color="#407cf9" className="font-mono" loading={status === 'loading'} feedback={status === 'success' ? 'success' : null} feedbackText="Done">
+            <Button type="submit" variant="primary" size="md" width="full" color="var(--brand-primary)" className="font-mono" loading={status === 'loading'} feedback={status === 'success' ? 'success' : null} feedbackText="Done">
               Send reset link
             </Button>
           </form>
 
-          <p className="mt-7 text-center text-sm text-neutral-700">
+          <p className="mt-7 text-center text-sm text-body">
             Remember your password?{' '}
             <Link href="/login" className="font-medium text-neutral-950 underline-offset-4 hover:underline">
               Sign in

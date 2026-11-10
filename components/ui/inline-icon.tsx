@@ -22,7 +22,7 @@ type InlineIconProps = {
 
 export const InlineIcon = ({
   children,
-  color = '#407cf9',
+  color = 'var(--brand-primary)',
   backgroundColor,
   className = '',
 }: InlineIconProps) => (
@@ -35,7 +35,7 @@ export const InlineIcon = ({
       'rounded-[0.28em] align-middle text-white ' +
       'border-[0.04em] border-[color:color-mix(in_oklab,var(--brand)_78%,black)] ' +
       'bg-linear-to-b from-[color-mix(in_oklab,var(--surface)_86%,white)] to-(--surface) ' +
-      'shadow-[inset_0_0_0_1.5px_rgba(255,255,255,0.24)] ' +
+      'shadow-[inset_0_0_0_1.5px_var(--effect-white-24)] ' +
       className
     }
   >
