@@ -2,7 +2,15 @@
 
 Ace is an AI-powered interview practice experience. It helps candidates rehearse role-specific questions, improve their answers, and build confidence before a real interview.
 
-This repository currently contains the responsive marketing site and the first-pass authentication UI for Ace.
+This repository contains the responsive landing page and first-pass authentication UI for Ace. The landing page is the primary product surface; login, signup, and password recovery remain available as supporting routes.
+
+## Author
+
+- **Aryan**
+- GitHub: [istmX](https://github.com/istmX)
+- Contact: `xparyan68@gmail.com`
+
+The source is proprietary and closed until the applicable source-code purchase is completed. See [LICENSE.md](./LICENSE.md) for the usage terms.
 
 ## What is included
 
