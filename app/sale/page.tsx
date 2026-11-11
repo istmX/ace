@@ -56,7 +56,7 @@ export default function SalePage() {
             A responsive Next.js front-end template with the product pages, UI, and theme system ready for your own direction.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:mt-9">
-            <SaleBadge href={inquiry} ariaLabel="Email to ask about the Ace landing page source code, priced at $300." size="large" />
+            <SaleBadge href={inquiry} ariaLabel="Email to ask about the Ace landing page source code, priced at $300." />
             <a href={inquiry} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border-[3px] border-[color:color-mix(in_oklab,var(--brand-primary)_78%,black)] bg-[linear-gradient(to_bottom,color-mix(in_oklab,var(--brand-primary)_86%,white),var(--brand-primary))] px-6 font-mono text-sm font-semibold text-white shadow-[inset_0_0_0_1.5px_var(--effect-white-24),0_14px_30px_-18px_var(--effect-black-30)] transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus motion-reduce:transition-none">
               <IconMail aria-hidden="true" className="h-4 w-4" /> Ask about purchasing <IconArrowRight aria-hidden="true" className="h-4 w-4" />
             </a>
