@@ -17,7 +17,9 @@ const Page = () => {
   return (
     <>
       <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-8">
-        <SaleBadge />
+     
+<SaleBadge variant="ticket" />
+
       </div>
       <main className="flex min-h-screen w-full flex-col overflow-x-clip bg-page text-copy">
         <Navbar />
@@ -30,8 +32,7 @@ const Page = () => {
               Inside a practice session
             </p>
             <h2 className="max-w-3xl font-display text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl lg:text-5xl">
-              Practice your next interview, <span className="text-brand">one question at a time.</span>
-            </h2>
+              Practice your next interview, <span className="text-brand">one question at a time.</span>            </h2>
             <p className="mt-4 max-w-2xl font-mono text-base leading-7 text-body sm:text-lg">
               Ace asks role-specific questions, listens to your answer, and gives you a clear review when you finish.
             </p>
