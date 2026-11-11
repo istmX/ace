@@ -9,7 +9,7 @@ import { FAQ } from '@/components/FAQ'
 import { Pricing } from '@/components/Pricing'
 import { ClosingCTA } from '@/components/ClosingCTA'
 import { Footer } from '@/components/Footer'
-import { IconMail, IconMicrophone } from '@tabler/icons-react'
+import { IconMicrophone, IconTicket } from '@tabler/icons-react'
 import { InlineIcon } from '@/components/ui/inline-icon'
 
 const Page = () => {
@@ -21,7 +21,7 @@ const Page = () => {
         className="fixed bottom-4 right-4 z-50 flex w-[118px] flex-col items-center rounded-2xl border border-brand/20 bg-surface/95 px-3 py-3 font-mono text-center text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:bottom-6 sm:right-8 sm:w-[132px] sm:px-3.5 sm:py-3.5"
       >
         <InlineIcon color="var(--brand-primary)" className="mx-0 h-9 w-9 rounded-xl text-white sm:h-10 sm:w-10">
-          <IconMail />
+          <IconTicket />
         </InlineIcon>
         <span className="mt-2 flex flex-col gap-1 leading-none">
           <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-subtle">Template</span>
