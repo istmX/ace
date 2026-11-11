@@ -18,12 +18,16 @@ const Page = () => {
       <a
         href="#pricing"
         aria-label="Ace template for sale for 300 dollars"
-        className="fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border border-brand/25 bg-surface/90 px-3.5 py-2 font-mono text-xs font-semibold tracking-[0.08em] text-brand-deep shadow-[0_8px_24px_-12px_var(--effect-black-35)] backdrop-blur-md transition-colors hover:border-brand/45 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:left-6 sm:top-5"
+        className="fixed left-4 top-20 z-50 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-surface/95 px-3 py-2 font-mono text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:left-8 sm:top-24 sm:gap-3 sm:px-3.5 sm:py-2.5"
       >
-        <span aria-hidden="true" className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-brand/12 px-1 text-[11px] tracking-normal">
-          $
+        <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand shadow-[0_0_0_3px_var(--brand-wash)]" />
+        <span className="flex flex-col gap-0.5 leading-none">
+          <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-subtle">Template</span>
+          <span className="tracking-[0.08em]">For sale</span>
         </span>
-        FOR SALE · $300
+        <span className="border-l border-brand/15 pl-2 text-sm font-semibold tracking-[-0.02em] text-brand sm:pl-3 sm:text-base">
+          $300
+        </span>
       </a>
       <main className="flex min-h-screen w-full flex-col overflow-x-clip bg-page text-copy">
         <Navbar />
