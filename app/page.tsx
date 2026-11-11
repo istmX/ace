@@ -20,14 +20,19 @@ const Page = () => {
         aria-label="Email Aryan about the Ace template, for sale for 300 dollars"
         className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-surface/95 px-3 py-2 font-mono text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:bottom-6 sm:right-8 sm:gap-3 sm:px-3.5 sm:py-2.5"
       >
-        <InlineIcon color="var(--brand-primary)" className="mx-0 h-7 w-7 rounded-lg text-white">
+        <InlineIcon color="var(--brand-primary)" className="mx-0 h-9 w-9 rounded-xl text-white sm:h-10 sm:w-10">
           <IconMail />
         </InlineIcon>
         <span className="flex flex-col gap-0.5 leading-none">
           <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-subtle">Template</span>
           <span className="tracking-[0.08em]">For sale</span>
         </span>
-        <span className="border-l border-brand/15 pl-2 text-sm font-semibold tracking-[-0.02em] text-brand sm:pl-3 sm:text-base">
+        <span aria-hidden="true" className="flex items-center gap-1.5 px-0.5 text-brand/40">
+          <span className="h-1 w-1 rounded-full bg-brand" />
+          <span className="w-3 border-t border-dotted border-brand/50 sm:w-4" />
+          <span className="h-1 w-1 rounded-full bg-brand" />
+        </span>
+        <span className="rounded-lg bg-brand/8 px-2 py-1 text-sm font-semibold tracking-[-0.02em] text-brand sm:px-2.5 sm:text-base">
           $300
         </span>
       </a>
