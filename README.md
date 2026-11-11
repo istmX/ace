@@ -12,6 +12,13 @@ This repository contains the responsive landing page and first-pass authenticati
 
 The source is proprietary and closed until the applicable source-code purchase is completed. See [LICENSE.md](./LICENSE.md) for the usage terms.
 
+## Template pricing
+
+- Full AI interview platform landing page: **$300**
+- Login, signup, and forgot-password pages: **$20 each**
+- All three supporting pages with the landing page: **$390 total**
+- Adding only one supporting page: **$30 extra**
+
 ## What is included
 
 - Landing page with:
