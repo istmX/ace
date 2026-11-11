@@ -9,18 +9,20 @@ import { FAQ } from '@/components/FAQ'
 import { Pricing } from '@/components/Pricing'
 import { ClosingCTA } from '@/components/ClosingCTA'
 import { Footer } from '@/components/Footer'
-import { IconMicrophone } from '@tabler/icons-react'
+import { IconMail, IconMicrophone } from '@tabler/icons-react'
 import { InlineIcon } from '@/components/ui/inline-icon'
 
 const Page = () => {
   return (
     <>
       <a
-        href="#pricing"
-        aria-label="Ace template for sale for 300 dollars"
-        className="fixed left-4 top-20 z-50 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-surface/95 px-3 py-2 font-mono text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:left-8 sm:top-24 sm:gap-3 sm:px-3.5 sm:py-2.5"
+        href="mailto:xparyan68@gmail.com?subject=Ace%20template%20inquiry"
+        aria-label="Email Aryan about the Ace template, for sale for 300 dollars"
+        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-surface/95 px-3 py-2 font-mono text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:bottom-6 sm:right-8 sm:gap-3 sm:px-3.5 sm:py-2.5"
       >
-        <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand shadow-[0_0_0_3px_var(--brand-wash)]" />
+        <InlineIcon color="var(--brand-primary)" className="mx-0 h-7 w-7 rounded-lg text-white">
+          <IconMail />
+        </InlineIcon>
         <span className="flex flex-col gap-0.5 leading-none">
           <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-subtle">Template</span>
           <span className="tracking-[0.08em]">For sale</span>
