@@ -3,16 +3,17 @@ import { IconTicket } from '@tabler/icons-react'
 
 type SaleBadgeProps = {
   href?: string
+  ariaLabel?: string
   size?: 'compact' | 'large'
 }
 
-export function SaleBadge({ href = '/sale', size = 'compact' }: SaleBadgeProps) {
+export function SaleBadge({ href = '/sale', ariaLabel = 'Ace landing page template, $300. View sale details.', size = 'compact' }: SaleBadgeProps) {
   const large = size === 'large'
 
   return (
     <Link
       href={href}
-      aria-label="Ace landing page template, $300. View sale details."
+      aria-label={ariaLabel}
       className={`group inline-flex max-w-full items-center border border-brand/20 bg-surface text-left text-copy shadow-[0_16px_38px_-24px_var(--effect-black-30)] transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-brand/35 hover:shadow-[0_20px_42px_-22px_var(--effect-black-35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus motion-reduce:transition-none ${large ? 'gap-4 rounded-[22px] p-4 sm:gap-5 sm:p-5' : 'gap-2.5 rounded-2xl p-2.5 sm:gap-3 sm:p-3'}`}
     >
       <span className={`flex shrink-0 items-center justify-center rounded-[15px] border border-white/25 bg-brand text-white shadow-[inset_0_1px_0_var(--effect-white-24)] ${large ? 'h-14 w-14 sm:h-16 sm:w-16' : 'h-10 w-10 sm:h-11 sm:w-11'}`}>
@@ -28,10 +29,13 @@ export function SaleBadge({ href = '/sale', size = 'compact' }: SaleBadgeProps) 
         </span>
       </span>
 
-      <span aria-hidden="true" className={`relative mx-0.5 shrink-0 border-l border-dotted border-brand/45 ${large ? 'h-12 sm:mx-1 sm:h-14' : 'h-8 sm:h-9'}`}>
-        <span className="absolute -left-[3px] top-0 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-brand" />
-        <span className="absolute -left-[3px] top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-brand/70" />
-        <span className="absolute -left-[3px] bottom-0 h-1.5 w-1.5 translate-y-1/2 rounded-full bg-brand" />
+      <span aria-hidden="true" className={`mx-0.5 block shrink-0 ${large ? 'h-12 w-3 sm:mx-1 sm:h-14' : 'h-8 w-[9px] sm:h-9'}`}>
+        <svg viewBox="0 0 12 48" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 5V43" stroke="var(--brand-primary)" strokeOpacity=".5" strokeWidth="1.5" strokeDasharray="1 4" strokeLinecap="round" />
+          <circle cx="6" cy="4" r="3.25" fill="var(--brand-primary)" />
+          <circle cx="6" cy="24" r="3.25" fill="var(--brand-primary)" fillOpacity=".72" />
+          <circle cx="6" cy="44" r="3.25" fill="var(--brand-primary)" />
+        </svg>
       </span>
 
       <span className={`flex shrink-0 flex-col items-center justify-center rounded-xl bg-brand/8 font-display font-semibold leading-none tracking-[-0.045em] text-brand ${large ? 'min-w-[96px] gap-1.5 px-3 py-3 sm:min-w-[112px] sm:px-4 sm:py-3.5' : 'min-w-[66px] gap-1 px-2 py-2 sm:min-w-[74px] sm:px-2.5'}`}>
