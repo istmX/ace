@@ -16,23 +16,23 @@ const Page = () => {
   return (
     <>
       <a
-        href="mailto:xparyan68@gmail.com?subject=Ace%20template%20inquiry"
-        aria-label="Email Aryan about the Ace template, for sale for 300 dollars"
-        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-xl border border-brand/20 bg-surface/95 px-3 py-2 font-mono text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:bottom-6 sm:right-8 sm:gap-3 sm:px-3.5 sm:py-2.5"
+        href="/sale"
+        aria-label="View the Ace template sale page"
+        className="fixed bottom-4 right-4 z-50 flex w-[118px] flex-col items-center rounded-2xl border border-brand/20 bg-surface/95 px-3 py-3 font-mono text-center text-[10px] font-semibold text-brand-deep shadow-[0_10px_28px_-14px_var(--effect-black-35)] transition-[border-color,background-color,box-shadow] hover:border-brand/40 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:bottom-6 sm:right-8 sm:w-[132px] sm:px-3.5 sm:py-3.5"
       >
         <InlineIcon color="var(--brand-primary)" className="mx-0 h-9 w-9 rounded-xl text-white sm:h-10 sm:w-10">
           <IconMail />
         </InlineIcon>
-        <span className="flex flex-col gap-0.5 leading-none">
+        <span className="mt-2 flex flex-col gap-1 leading-none">
           <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-subtle">Template</span>
           <span className="tracking-[0.08em]">For sale</span>
         </span>
-        <span aria-hidden="true" className="flex items-center gap-1.5 px-0.5 text-brand/40">
-          <span className="h-1 w-1 rounded-full bg-brand" />
-          <span className="w-3 border-t border-dotted border-brand/50 sm:w-4" />
-          <span className="h-1 w-1 rounded-full bg-brand" />
+        <span aria-hidden="true" className="my-3 flex w-full items-center gap-1.5 text-brand/40">
+          <span className="h-1 w-1 shrink-0 rounded-full bg-brand" />
+          <span className="min-w-0 flex-1 border-t border-dotted border-brand/50" />
+          <span className="h-1 w-1 shrink-0 rounded-full bg-brand" />
         </span>
-        <span className="rounded-lg bg-brand/8 px-2 py-1 text-sm font-semibold tracking-[-0.02em] text-brand sm:px-2.5 sm:text-base">
+        <span className="rounded-lg bg-brand/8 px-3 py-1.5 text-base font-semibold tracking-[-0.02em] text-brand sm:text-lg">
           $300
         </span>
       </a>

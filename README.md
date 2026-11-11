@@ -15,7 +15,7 @@ The source is proprietary and closed until the applicable source-code purchase i
 ## Template pricing
 
 - Full AI interview platform landing page: **$300**
-- Login, signup, and forgot-password pages: **$20 each**
+- Login, signup, and forgot-password pages: **$30 each**
 - All three supporting pages with the landing page: **$390 total**
 - Adding only one supporting page: **$30 extra**
 
@@ -39,6 +39,7 @@ The source is proprietary and closed until the applicable source-code purchase i
 | Route | Purpose |
 | --- | --- |
 | `/` | Ace marketing page |
+| `/sale` | Template features, deliverables, and pricing |
 | `/login` | Sign-in UI |
 | `/signup` | Account creation UI |
 | `/forgot-password` | Password recovery UI |
