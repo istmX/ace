@@ -15,6 +15,16 @@ import { InlineIcon } from '@/components/ui/inline-icon'
 const Page = () => {
   return (
     <>
+      <a
+        href="#pricing"
+        aria-label="Ace template for sale for 300 dollars"
+        className="fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border border-brand/25 bg-surface/90 px-3.5 py-2 font-mono text-xs font-semibold tracking-[0.08em] text-brand-deep shadow-[0_8px_24px_-12px_var(--effect-black-35)] backdrop-blur-md transition-colors hover:border-brand/45 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:left-6 sm:top-5"
+      >
+        <span aria-hidden="true" className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-brand/12 px-1 text-[11px] tracking-normal">
+          $
+        </span>
+        FOR SALE · $300
+      </a>
       <main className="flex min-h-screen w-full flex-col overflow-x-clip bg-page text-copy">
         <Navbar />
         <Hero />
